@@ -1,0 +1,78 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<br><br><br>
+
+<div>
+  Month:
+  <select (change)="changeMonths($event)">
+    <option *ngFor="let i of months"> {{i}}</option>
+  </select>
+</div>
+<br><br>
+<div>
+  <span *ngIf="isavailable; then condition2 else condition1"></span>
+  <ng-template #condition1>Condition1 is valid</ng-template>
+  <ng-template #condition2>Condition2 is valid</ng-template>
+</div>
+<button (click)="myClickFunction($event)">click Me</button>
+<br><br>
+<div>
+  <h3>Uppercasepipe</h3>
+  <b>{{title | uppercase}}</b>
+  <br><br>
+  <h3>Lowercasepipe</h3>
+  <b>{{title | lowercase}}</b>
+  <br><br>
+  <h3>Jsonpipe</h3>
+  <b>{{jsonval | json}}</b>
+  <br><br>
+  <h3>Currencypipe</h3>
+  <b>{{123.45 | currency:"USD"}}</b>
+  <br><br>
+  <h3>Datepipe</h3>
+  <b>{{todayDate | date:"d/M/y"}}</b>
+  <br><br>
+  <h3>Current Tim using Datepipe</h3>
+  <b>{{todayDate | date:"shortTime"}}</b>
+  <br><br>
+  <h3>Percentpipe</h3>
+  <b>{{00.456 | percent}}</b>
+  <br><br>
+  <h3>Decimalpipe</h3>
+  <b>{{789.564123456 | number:'6.5'}}</b>
+  <br><br>
+  <h3>Slicepipe</h3>
+  <b>{{months | slice: 2:6}}</b>
+  <br><br>
+  <h3>Custom Pipe</h3>
+  <b>{{225 | sqrt}}</b>
+  <br><br>
+</div>
+
+
+<br><br><br>
+<div>
+  <ul *ngFor="let data of httpdata1"><b>This is for HttpService data</b>
+    <li>Id : {{data.id}} !!!! Name : {{data.name}}</li>
+  </ul>
+</div><br>
+<div>
+  <b *ngFor="let data of httpdata2">Id : {{data.id}} !!!! Name : {{data.name}}</b>
+</div>
+<div>
+  <ul *ngFor="let data of Httpclientdata1"><i><b>This for HttpClient data</b></i>
+    <li>
+      Id : {{data.id}} !!!! Name : {{data.name}}
+    </li>
+  </ul>
+  <i><b *ngFor="let data of Httpclientdata2">Id : {{data.id}} !!!! Name : {{data.name}}</b></i>
+</div>
+
+<br><br>
+
+<nav>
+  <b>
+    <a routerLink="new-cmp">New Component</a>
+  </b>
+</nav>
+
+<router-outlet></router-outlet>
